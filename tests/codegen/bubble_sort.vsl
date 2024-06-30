@@ -1,0 +1,53 @@
+
+var array[10], i, j, temp, n
+
+func main() begin
+    n := 10
+    
+    // Initialize array with values
+    array[0] := 34
+    array[1] := 12
+    array[2] := 25
+    array[3] := 9
+    array[4] := 45
+    array[5] := 18
+    array[6] := 29
+    array[7] := 5
+    array[8] := 38
+    array[9] := 22
+
+    // Bubble sort
+    i := 0
+    while i < n-1 do begin
+        j := 0
+        while j < n-i-1 do begin
+            if array[j] > array[j+1] then begin
+                temp := array[j]
+                array[j] := array[j+1]
+                array[j+1] := temp
+            end
+            j := j + 1
+        end
+        i := i + 1
+    end
+
+    // Print sorted array
+    i := 0
+    while i < n do begin
+        print "Element ", i, ": ", array[i]
+        i := i + 1
+    end
+end
+
+
+//TESTCASE:
+//Element 0: 5
+//Element 1: 9
+//Element 2: 12
+//Element 3: 18
+//Element 4: 22
+//Element 5: 25
+//Element 6: 29
+//Element 7: 34
+//Element 8: 38
+//Element 9: 45

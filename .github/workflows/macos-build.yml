@@ -1,0 +1,28 @@
+name: macOS CI 🍎
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install macOS deps 🍺
+        run: brew install bison flex gcc@14
+
+      - name: Configure CMake 🛠️
+        run: cmake -B build
+
+      - name: Compile the compiler 🏗
+        run: cmake --build build
+
+      - name: Run tests 🧪
+        run: |
+          cd tests
+          sudo chmod 777 codegen-tester.py
+          arch -x86_64 make check-all

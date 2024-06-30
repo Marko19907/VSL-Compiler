@@ -1,0 +1,7 @@
+{
+  "name": "Ubunutu 22.04",
+  "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
+  "features": {
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get -y install bison flex"
+}

@@ -1,0 +1,25 @@
+name: Linux CI 🐧
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure CMake 🛠️
+        run: cmake -B build
+
+      - name: Compile the compiler 🏗
+        run: cmake --build build
+
+      - name: Run tests 🧪
+        run: |
+          cd tests
+          sudo chmod 777 codegen-tester.py
+          make check-all

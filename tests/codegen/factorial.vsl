@@ -1,0 +1,21 @@
+
+func main(num) begin
+    print "Factorial of ", num, " is: ", factorial(num)
+end
+
+func factorial(n) begin
+    if n = 0 then
+        return 1
+    else
+        return n * factorial(n - 1)
+end
+
+
+//TESTCASE: 0
+//Factorial of 0 is: 1
+
+//TESTCASE: 5
+//Factorial of 5 is: 120
+
+//TESTCASE: 10
+//Factorial of 10 is: 3628800
